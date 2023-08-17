@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mca
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: mca
+  template:
+    metadata:
+      labels:
+        app: mca
+    spec:
+      containers:
+      - image: springcommunity/spring-framework-petclinic:latest
+        name: mca
+        ports:
+        - containerPort: 8080
+        
